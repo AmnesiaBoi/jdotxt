@@ -149,6 +149,7 @@
            			<rulesets>
            				<ruleset>/rulesets/ruleset.xml</ruleset>
            			</rulesets>
+           			<outputDirectory>reports/</outputDirectory>
         		</configuration>
         		<executions>
           			<execution>
