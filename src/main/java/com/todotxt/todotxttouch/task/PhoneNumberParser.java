@@ -25,7 +25,7 @@ package com.todotxt.todotxttouch.task;
 import java.util.Collections;
 import java.util.List;
 
-public class PhoneNumberParser {
+public final class PhoneNumberParser {
 	// private static final Pattern NUMBER_PATTERN = android.util.Patterns.
 	private static final PhoneNumberParser INSTANCE = new PhoneNumberParser();
 

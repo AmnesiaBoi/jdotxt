@@ -6,7 +6,7 @@ public class DelayedActionHandler {
 	private ActionListener action;
 	private Thread t;
 	private int delayMillis;
-	private long triggerTime;
+	long triggerTime;
 	
 	private boolean isRunning;
 	

@@ -31,7 +31,7 @@ import java.util.List;
  * @author Tim Barlotta
  */
 class ByPriorityFilter implements Filter<Task> {
-	ArrayList<Priority> priorities = new ArrayList<Priority>();
+	List<Priority> priorities = new ArrayList<>();
 
 	public ByPriorityFilter(List<Priority> priorities) {
 		if (priorities != null) {
@@ -52,7 +52,7 @@ class ByPriorityFilter implements Filter<Task> {
 	}
 
 	/* FOR TESTING ONLY, DO NOT USE IN APPLICATION */
-	ArrayList<Priority> getPriorities() {
+	List<Priority> getPriorities() {
 		return priorities;
 	}
 }

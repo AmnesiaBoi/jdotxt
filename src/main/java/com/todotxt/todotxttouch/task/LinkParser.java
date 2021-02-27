@@ -45,21 +45,26 @@ public class LinkParser {
 	}
 
 	public List<URL> parse(String inputText) {
-		if (inputText == null) {
-			return Collections.emptyList();
-		}
-
-		Matcher m = LINK_PATTERN.matcher(inputText);
-		List<URL> links = new ArrayList<URL>();
-		while (m.find()) {
-			URL link;
-			try {
-				link = new URL(m.group());
-				links.add(link);
-			} catch (MalformedURLException e) {
-				throw new TodoException("Malformed URL matched the regex", e);
+		List<URL> links = new ArrayList<>();
+		
+		if (inputText != null)
+		{
+			Matcher m = LINK_PATTERN.matcher(inputText);
+			while (m.find()) 
+			{
+				URL link;
+				try 
+				{
+					link = new URL(m.group());
+					links.add(link);
+				} 
+				catch (MalformedURLException e) 
+				{
+					throw new TodoException("Malformed URL matched the regex", e);
+				}
 			}
 		}
+		
 		return links;
 	}
 }
