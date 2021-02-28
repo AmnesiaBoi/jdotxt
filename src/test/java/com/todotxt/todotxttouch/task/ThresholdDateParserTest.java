@@ -40,7 +40,12 @@ public class ThresholdDateParserTest {
     @Test
     public void correctDueDateParseTest() throws ParseException {
         String task = "Threshold date due:2018-01-01";
-        Date expected = FORMAT.parse("2018-01-01");
+        Date expected;
+        synchronized (FORMAT) {
+        	expected = FORMAT.parse("2018-01-01");	
+		}
+        
+        
         Date actual = ThresholdDateParser.getInstance().parseDueDate(task);
         assertEquals(expected, actual);
     }
