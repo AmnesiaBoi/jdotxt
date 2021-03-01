@@ -72,7 +72,7 @@ PMD_report#_.html STRUCTURE
 
 | Rule                    | Violation                                                                                          | Line |
 |-------------------------|----------------------------------------------------------------------------------------------------|------|
-| MethodNamingConventions | The native method name 'SetCurrentProcessExplicitAppUserModelID' doesn't match '[a-z][a-zA-Z0-9]*' | 52   |
+| MethodNamingConventions | The native method name 'SetCurrentProcessExplicitAppUserModelID' doesn't match [a-z][a-zA-Z0-9] | 52   |
 |                         |                                                                                                    |      |
 
 group17_project3.PDF STRUCTURE
