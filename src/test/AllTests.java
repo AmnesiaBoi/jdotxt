@@ -11,7 +11,7 @@ public class AllTests {
 	import java.util.EmptyStackException;
 	import java.util.Stack;
 
-	private class JunitTesting extends copyFile {
+	class JunitTesting extends copyFile {
 
 		@Test
 	    @FileSource(file = newFile)
@@ -24,9 +24,7 @@ public class AllTests {
 /*Category Partition Method
 
 grep - search a file for a X pattern
-
 grep <pattern> <filename>
-
 
 guide:
 http://209.242.1.146/docs/TestPatternCategoryPartition.pdf
@@ -62,3 +60,5 @@ Environments:
 		# assumes line contains the pattern
 		one 									[if Match]
 		more than one 							[if Match]
+
+*/
