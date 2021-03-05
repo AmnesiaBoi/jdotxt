@@ -14,23 +14,38 @@ public class Tests {
 
 	// Eduardo
 	// https://www.vogella.com/tutorials/JUnit/article.html
+	
+/* category partition of CursorPositionCalcTest1
+ * 
+ *  cursor position <0 -> RETURNS cursor position > 0
+ *  cursor position = 0 -> RETURNS cursor position > 0
+ *  cursor position > 0 -> RETURNS SysOut ("all good")
+ */
+	
 	@Test
 	//Cursor Position #1
-	public void CursorPositionCalcTest(newValue, task){
-		String newValue = "hello";
-		String piorValue = "world";
-		task = newValue - priorValue;
-			return task;
+	public void CursorPositionCalcTest1(){
+		String newValue = "helloes";
+		String priorValue = "worlds";
+		int task = (newValue.length() - priorValue.length());
+		assertTrue(task >= 0);
+	}
+
+	public void CursorPositionCalcTest2(){
+		String newValue = "bang";
+		String priorValue = "bong";
+		int task = (newValue.length() - priorValue.length());
+		assertTrue(task >= 0);
 	}
 
 	@Test
 	//Cursor Position #2
 	public void CursorPositionCalcTest2(){
 		  //int random = randomFunction();
-		  int piorValue = -90;
+		  int priorValue = -90;
 		  int newValue = 80;
-		  assertTrue("Error, random is too high", newValue - piorValue >= 0);
-		  System.out.println("Test passed: " + newValue + " higher than " + piorValue);
+		  assertTrue("Error, random is too high", newValue - priorValue >= 0);
+		  System.out.println("Test passed: " + newValue + " higher than " + priorValue);
 	//Eduardo
 	}
 
@@ -76,8 +91,8 @@ public class Tests {
 	//Valid Date #2
 
 	@Test
-	public void dateMustBeValid implements void DateValidator(){
-		DateTimeFormatter dateFormatter = DateTimeFormatter.BASIC_ISO_DATE;
+	public void dateMustBeValid DateValidator(){
+		// DateTimeFormatter dateFormatter = DateTimeFormatter.BASIC_ISO_DATE;
 		GregorianCalendar validator = new GregorianCalendar();
 			//today.set(GregorianCalendar.HOUR_OF_DAY, 32);
 			//today.set(GregorianCalendar.MINUTE, 4234);
