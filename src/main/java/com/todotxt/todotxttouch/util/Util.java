@@ -381,7 +381,14 @@ public class Util {
 		}
 		return builder.toString();
 	}
-	
+
+	/**
+	 * 
+	 * @param s
+	 * @param delimeter
+	 * @return List of Strings s separated by elements specified in delimiter
+	 */
+
 	public static ArrayList<String> split(String s, String delimeter) {
 		if (Strings.isBlank(s)) {
 			return new ArrayList<String>();
@@ -398,7 +405,7 @@ public class Util {
             return null;
         }
     }
-    
+
 	public static void prependString(ArrayList<String> list, String prepend) {
 		for (int k1=0; k1 < list.size(); k1++) {
 			list.set(k1, prepend + list.get(k1));

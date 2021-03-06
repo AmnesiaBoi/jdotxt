@@ -1,9 +1,11 @@
 package com.todotxt.todotxttouch.util;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -105,7 +107,7 @@ public class StringsTest
 
 	@Test
 	public void insertStringTest10() {
-		String expected = "abc";
+		String expected = "abc abc";
 		String actual = Strings.insertPadded("abc", 0, "abc");
 
 		assertEquals(expected, actual);
@@ -121,99 +123,158 @@ public class StringsTest
 
 	@Test
 	public void insertStringTest12() {
-		String expected = "abc";
+		String expected = "ab abc c";
 		String actual = Strings.insertPadded("abc", 2, "abc");
 
 		assertEquals(expected, actual);
 	}
-	// #3 Delims #1
-	// ArrayList<String> actual = 
-	// ArrayList<String> array String[]actual = split(";");
-	// String[] actual = s.split(s);
-	// ArrayList<String> expected = (ArrayList<String>) Arrays.asList("ab", "cd");
-	// 2
+
 	@Test 
-	public static void split1(String s, String delimeter) {
-		ArrayList<String> expected = (ArrayList<String>) Arrays.asList("abc", "def");
-		
-		assertEquals(expected, s.split(null, 3));
+	public void split1() {
+		List<String> expected = Arrays.asList("abc", "def");
+		ArrayList<String> actual = Util.split(null, ";");
+
+		assertNotEquals(expected, actual);
+	}
+
+	@Test
+	public void split2() {
+		List<String> expected = Arrays.asList("abc", "def");
+		List<String> actual = Util.split("", null);
+
+		assertNotEquals(expected, actual);
 	}
 
 	@Test 
-	public void split2(String s, String delimeter) {
-		ArrayList<String> expected = (ArrayList<String>) Arrays.asList("abc", "def");
+	public void split3() {
+		List<String> expected = new ArrayList<String>();
+		List<String> actual = Util.split("", "");
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void split4() {
+		List<String> expected = Arrays.asList("");
+		List<String> actual = Util.split("", ";");
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void split5() {
+		List<String> expected = Arrays.asList("a", "b", "c", "d", "e", "f");
+		List<String> actual = Util.split("abcdef", "");
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void split6() {
+		List<String> expected = Arrays.asList("abcdef");
+		List<String> actual = Util.split("abcdef", ";");
 		
-		assertEquals(expected, "mid delim".split("abcdef", null));
+		assertEquals(expected, actual);
 	}
 
 	@Test 
-	public void split3(String s, String delimeter) {
-		ArrayList<String> expected = (ArrayList<String>) Arrays.asList("abc", "def");
+	public void split7() {
+		List<String> expected = Arrays.asList(";", "a", "b", "c", "d", "e", "f");
+		List<String> actual = Util.split(";abcdef", "");
 		
-		assertEquals(expected, s.split("", ""));
+		assertEquals(expected, actual);
 	}
 
 	@Test 
-	public void split4(String s, String delimeter) {
-		ArrayList<String> expected = (ArrayList<String>) Arrays.asList("abc", "def");
+	public void split8() {
+		List<String> expected = Arrays.asList("","abcdef");
+		List<String> actual = Util.split(";abcdef", ";");
 		
-		assertEquals(expected, s.split("", 3));
+		assertEquals(expected, actual);
 	}
 
 	@Test 
-	public void split5(String s, String delimeter) {
-		ArrayList<String> expected = (ArrayList<String>) Arrays.asList("abc", "def");
+	public void split9() {
+		List<String> expected = Arrays.asList("abcdef");
+		List<String> actual = Util.split("abcdef;", ";");
 		
-		assertEquals(expected, "no delim".split("abcdef", ""));
+		assertEquals(expected, actual);
 	}
 
 	@Test 
-	public void split6(String s, String delimeter) {
-		ArrayList<String> expected = (ArrayList<String>) Arrays.asList("abc", "def");
+	public void split10() {
+		List<String> expected = Arrays.asList("abcdef;");
+		List<String> actual = Util.split("abcdef;", ";");
 		
-		assertEquals(expected, "no delim".split("abcdef", 3));
+		assertEquals(expected, actual);
 	}
 
 	@Test 
-	public void split7(String s, String delimeter) {
-		ArrayList<String> expected = (ArrayList<String>) Arrays.asList("abc", "def");
+	public void split11() {
+		List<String> expected = Arrays.asList("abc;def");
+		List<String> actual = Util.split("abc;def", "");
 		
-		assertEquals(expected, "init delim".split("abcdef", ""));
+		assertEquals(expected, actual);
 	}
 
 	@Test 
-	public void split8(String s, String delimeter) {
-		ArrayList<String> expected = (ArrayList<String>) Arrays.asList("abc", "def");
-		
-		assertEquals(expected, "init delim".split("abcdef", 1));
+	
+	public void split12() {
+		List<String> expected = Arrays.asList("abc", "def");
+		List<String> actual = Util.split("abc;def", ";");
+
+		assertNotEquals(expected, actual);
 	}
 
+	// #4 delim Join
 	@Test 
-	public void split9(String s, String delimeter) {
-		ArrayList<String> expected = (ArrayList<String>) Arrays.asList("abc", "def");
-		
-		assertEquals(expected, "end delim".split("abcdef"));
+	// public static String join(Collection<?> s, String delimiter)
+	public void join1() {
+		List<String> original = null;
+		String expected = null;
+		String actual = Util.join(original, ",");
+
+		assertEquals(expected, actual);
 	}
 
-	@Test 
-	public void split10(String s, String delimeter) {
-		ArrayList<String> expected = (ArrayList<String>) Arrays.asList("abc", "def");
-		
-		assertEquals(expected, "end delim".split("abcdef", 3));
+	public void join2() {
+		List<String> original = Arrays.asList("abc", "def");
+		String expected = "abc,def";
+		String actual = Util.join(original, null);
+
+		assertEquals(expected, actual);
 	}
 
-	@Test 
-	public void split11(String s, String delimeter) {
-		ArrayList<String> expected = (ArrayList<String>) Arrays.asList("abc", "def");
-		
-		assertEquals(expected, "mid delim".split("abcdef"));
+	public void join3() {
+		List<String> original = Arrays.asList("");
+		String expected = "";
+		String actual = Util.join(original, "");
+
+		assertEquals(expected, actual);
 	}
 
-	@Test 
-	public void split12(String s, String delimeter) {
-		ArrayList<String> expected = (ArrayList<String>) Arrays.asList("abc", "def");
+	public void join4() {
+		List<String> original = Arrays.asList("");
+		String expected = "";
+		String actual = Util.join(original, ",");
 
-		assertEquals(expected, "mid delim".split("abcdef", 3));
+		assertEquals(expected, actual);
+	}
+
+	public void join5() {
+		List<String> original = Arrays.asList("abc", "def");
+		String expected = "";
+		String actual = Util.join(original, "");
+
+		assertEquals(expected, actual);
+	}
+
+	public void join6() {
+		List<String> original = Arrays.asList("abc", "def");
+		String expected = "abc,def";
+		String actual = Util.join(original, ",");
+
+		assertEquals(expected, actual);
 	}
 
 	@Test
