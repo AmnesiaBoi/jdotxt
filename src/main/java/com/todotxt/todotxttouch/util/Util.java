@@ -365,6 +365,19 @@ public class Util {
 		return cm.getActiveNetworkInfo() != null
 				&& cm.getActiveNetworkInfo().isConnected();
 	}*/
+	
+	/**
+	 * Joins a given list of any type into Strings specified by an 
+	 * interval between a specified delimiter parameter
+	 * 
+	 * @param s
+	 *            a collection of type unknown
+	 * @param delimiter
+	 *            the delimiter character to specify the join points
+	 * @return returns strings that are were merged by . If the delimiter is empty it will
+	 *         return a list of each character in the string.
+	 * 
+	 */
 
 	public static String join(Collection<?> s, String delimiter) {
 		StringBuilder builder = new StringBuilder();
@@ -383,10 +396,17 @@ public class Util {
 	}
 
 	/**
+	 * Splits a given string into an ArrayList of elements given a specific
+	 * delimiter character.
 	 * 
 	 * @param s
-	 * @param delimeter
-	 * @return List of Strings s separated by elements specified in delimiter
+	 *            the String to be split
+	 * @param delimiter
+	 *            the delimiter character to specify the split points
+	 * @return Returns a list of Strings, separated by the character specified 
+	 *         in the delimiter parameter. If the delimiter is empty it will
+	 *         return a list of each character in the string.
+	 * 
 	 */
 
 	public static ArrayList<String> split(String s, String delimeter) {

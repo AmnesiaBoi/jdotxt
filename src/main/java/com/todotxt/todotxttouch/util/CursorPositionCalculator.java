@@ -34,7 +34,7 @@ public final class CursorPositionCalculator {
 	 *            the prior value of the string
 	 * @param newValue
 	 *            the new value of the string
-	 * @return the calculated position. If priorValue is null than the
+	 * @return the calculated position. If priorValue is null then the
 	 *         calculated position will be the position just after the string.
 	 *         If the newValue is null than the position will be 0.
 	 */
