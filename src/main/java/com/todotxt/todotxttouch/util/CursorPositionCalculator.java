@@ -36,7 +36,7 @@ public final class CursorPositionCalculator {
 	 *            the new value of the string
 	 * @return the calculated position. If priorValue is null then the
 	 *         calculated position will be the position just after the string.
-	 *         If the newValue is null than the position will be 0.
+	 *         If the newValue is null then the position will be 0.
 	 */
 	public static final int calculate(int priorCursorPosition,
 			String priorValue, String newValue) {
