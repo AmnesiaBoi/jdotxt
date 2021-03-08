@@ -131,14 +131,14 @@ public class StringsTest
 
 	@Test
 	//PADDED TEST #1
-	public void insertPaddedTest_NULL(){
+	public void insertPaddedTest13(){
 		//int random = randomFunction();
 		assertEquals("TestNULL", Strings.insertPadded("TestNULL", 10, null));
 	}
 	
 	@Test
 	//PADDED TEST #2
-	public void insertPaddedTest_notNULL(){
+	public void insertPaddedTestNot14(){
 		assertEquals("TestnotNUL helloworld L", Strings.insertPadded("TestnotNULL", 10, "helloworld"));
 		// "TestnotNUL helloworld L"
 	}

@@ -37,7 +37,7 @@ public class UtilTest
 
 	@Test
 	public void split4() {
-		List<String> expected = Arrays.asList("");
+		List<String> expected = new ArrayList<String>();
 		List<String> actual = Util.split("", ";");
 
 		assertEquals(expected, actual);
@@ -105,7 +105,7 @@ public class UtilTest
 		List<String> expected = Arrays.asList("abc", "def");
 		List<String> actual = Util.split("abc;def", ";");
 
-		assertNotEquals(expected, actual);
+		assertEquals(expected, actual);
 	}
 
 	@Test 
@@ -117,6 +117,7 @@ public class UtilTest
 		assertEquals(expected, actual);
 	}
 
+	@Test
 	public void join2() {
 		List<String> original = Arrays.asList("abc", "def");
 		String expected = "abc,def";
@@ -125,6 +126,7 @@ public class UtilTest
 		assertEquals(expected, actual);
 	}
 
+	@Test
 	public void join3() {
 		List<String> original = Arrays.asList("");
 		String expected = "";
@@ -133,6 +135,7 @@ public class UtilTest
 		assertEquals(expected, actual);
 	}
 
+	@Test
 	public void join4() {
 		List<String> original = Arrays.asList("");
 		String expected = "";
@@ -141,6 +144,7 @@ public class UtilTest
 		assertEquals(expected, actual);
 	}
 
+	@Test
 	public void join5() {
 		List<String> original = Arrays.asList("abc", "def");
 		String expected = "";
@@ -149,6 +153,7 @@ public class UtilTest
 		assertEquals(expected, actual);
 	}
 
+	@Test
 	public void join6() {
 		List<String> original = Arrays.asList("abc", "def");
 		String expected = "abc,def";
