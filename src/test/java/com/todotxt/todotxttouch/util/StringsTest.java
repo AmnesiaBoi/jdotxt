@@ -38,7 +38,7 @@ public class StringsTest
 	// #1 String to Insert
 
 	@Test
-	public void test1() {
+	public void insertPaddedTest1() {
 		String expected = "abc";
 		String actual = Strings.insertPadded(null, 0, "abc");
 
@@ -46,7 +46,7 @@ public class StringsTest
 	}
 
 	@Test
-	public void test2() {
+	public void insertPaddedTest2() {
 		String expected = "";
 		String actual = Strings.insertPadded("", 0, null);
 
@@ -54,17 +54,17 @@ public class StringsTest
 	}
 
 	@Test(expected=IndexOutOfBoundsException.class)
-	public void test3() {
+	public void insertPaddedTest3() {
 		Strings.insertPadded("", -2, "abc");
 	}
 
 	@Test(expected=IndexOutOfBoundsException.class)
-	public void test4() {
+	public void insertPaddedTest4() {
 		Strings.insertPadded("", 1, "abc");
 	}
 	
 	@Test
-	public void test5() {
+	public void insertPaddedTest5() {
 		String expected = "";
 		String actual = Strings.insertPadded("", 0, "");
 
@@ -72,7 +72,7 @@ public class StringsTest
 	}
 
 	@Test
-	public void test6() {
+	public void insertPaddedTest6() {
 		String expected = "abc";
 		String actual = Strings.insertPadded("", 0, "abc");
 
@@ -80,7 +80,7 @@ public class StringsTest
 	}
 
 	@Test
-	public void test7() {
+	public void insertPaddedTest7() {
 		String expected = "abc";
 		String actual = Strings.insertPadded("abc", 0, "");
 
@@ -88,7 +88,7 @@ public class StringsTest
 	}
 
 	@Test
-	public void test8() {
+	public void insertPaddedTest8() {
 		String expected = "abc abc";
 		String actual = Strings.insertPadded("abc", 0, "abc");
 
@@ -96,7 +96,7 @@ public class StringsTest
 	}
 	
 	@Test
-	public void test9() {
+	public void insertPaddedTest9() {
 		String expected = "abc";
 		String actual = Strings.insertPadded("abc", 2, "");
 
@@ -104,7 +104,7 @@ public class StringsTest
 	}
 
 	@Test
-	public void test10() {
+	public void insertPaddedTest10() {
 		String expected = "ab abc c";
 		String actual = Strings.insertPadded("abc", 2, "abc");
 
