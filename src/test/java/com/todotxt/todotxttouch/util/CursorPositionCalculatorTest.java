@@ -36,7 +36,7 @@ public class CursorPositionCalculatorTest
 	 */
 	
 	@Test
-	public void test1()
+	public void calculateTest1()
 	{
 		int expected = 3;
 		int actual = CursorPositionCalculator.calculate(-2, "", "abc");
@@ -45,7 +45,7 @@ public class CursorPositionCalculatorTest
 	}
 	
 	@Test
-	public void test2()
+	public void calculateTest2()
 	{
 		int expected = 3;
 		int actual = CursorPositionCalculator.calculate(2, "", "abc");
@@ -54,7 +54,7 @@ public class CursorPositionCalculatorTest
 	}
 	
 	@Test
-	public void test3()
+	public void calculateTest3()
 	{
 		int expected = 3;
 		int actual = CursorPositionCalculator.calculate(0, null, "abc");
@@ -63,7 +63,7 @@ public class CursorPositionCalculatorTest
 	}
 	
 	@Test
-	public void test4() 
+	public void calculateTest4() 
 	{
 		int expected = 0;
 		int actual = CursorPositionCalculator.calculate(0, "", null);
@@ -72,7 +72,7 @@ public class CursorPositionCalculatorTest
 	}
 	
 	@Test
-	public void test5() 
+	public void calculateTest5() 
 	{
 		int expected = 0;
 		int actual = CursorPositionCalculator.calculate(0, "", "");
@@ -81,7 +81,7 @@ public class CursorPositionCalculatorTest
 	}
 	
 	@Test
-	public void test6() 
+	public void calculateTest6() 
 	{
 		int expected = 3;
 		int actual = CursorPositionCalculator.calculate(0, "", "abc");
@@ -90,7 +90,7 @@ public class CursorPositionCalculatorTest
 	}
 	
 	@Test
-	public void test7() 
+	public void calculateTest7() 
 	{
 		int expected = 0;
 		int actual = CursorPositionCalculator.calculate(0, "abc", "");
@@ -99,7 +99,7 @@ public class CursorPositionCalculatorTest
 	}
 	
 	@Test
-	public void test8() 
+	public void calculateTest8() 
 	{
 		int expected = 0;
 		int actual = CursorPositionCalculator.calculate(0, "abc", "abc");
@@ -108,7 +108,7 @@ public class CursorPositionCalculatorTest
 	}
 	
 	@Test
-	public void test9() 
+	public void calculateTest9() 
 	{
 		int expected = 0;
 		int actual = CursorPositionCalculator.calculate(2, "abc", "");
@@ -117,7 +117,7 @@ public class CursorPositionCalculatorTest
 	}
 	
 	@Test
-	public void test10() 
+	public void calculateTest10() 
 	{
 		int expected = 2;
 		int actual = CursorPositionCalculator.calculate(2, "abc", "abc");
