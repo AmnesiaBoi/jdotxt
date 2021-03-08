@@ -8,28 +8,37 @@ public class StringsTest
 {
 
 	/*
-	   	|   s   |   insertAt   | stringToInsert |
-		-----------------------------------------
-		| null  |      0       |      "abc"     |  null strings  
-		| "abc" | <s.length()  |      null      |
-		-----------------------------------------
-		| "abc" |   negative   |      "abc"     |  negative insertAt
-		| "abc" | >=s.length() |      "abc"     |  <=s.length()
-		-----------------------------------------
-		|  ""   |      0       |       ""       |  combinations  
-		|  ""   |      0       |      "abc"     |
-		|  ""   | <s.length()  |       ""       |
-		|  ""   | <s.length()  |      "abc"     |
-		| "abc" |      0       |       ""       |  
-		| "abc" |      0       |      "abc"     |
-		| "abc" | <s.length()  |       ""       |
-		| "abc" | <s.length()  |      "abc"     |
+	 * Strings.insertPadded(String s, int insertAt, String stringToInsert)
+	 * 
+	 * Variations:
+	 * 		s              : null, "", "abc"
+	 * 		insertAt       : <0, 0, <=s.length(), >s.length()
+	 * 		stringToInsert : null, "", "abc"
+	 * 
+	 * Combinations:   (R for Redundant)
+	 * 		#  , s    , insertAt    , stringToInsert, expected
+	 * 
+	 * 		1  , null , 0           , "abc"         , "abc"
+	 *      2  , ""   , 0           , null          , ""
+	 *      
+	 *      3  , ""   , <0          , "abc"         , IndexOutOfBoundsException
+	 *      4  , ""   , >s.length() , "abc"         , IndexOutOfBoundsException
+	 *      
+	 *      5  , ""   , 0           , ""            , ""
+	 *      6  , ""   , 0           , "abc"         , "abc"
+	 *      R  , ""   , <=s.length(), ""            , ""
+	 *      R  , ""   , <=s.length(), "abc"         , "abc"
+	 *      7  , "abc", 0           , ""            , "abc"
+	 *      8  , "abc", 0           , "abc"         , "abc abc"
+	 *      9  , "abc", <=s.length(), ""            , "abc"
+	 *      10 , "abc", <=s.length(), "abc"         , "ab abc c"
+	 * 
 	 */
 	
 	// #1 String to Insert
 
 	@Test
-	public void insertStringTest1() {
+	public void test1() {
 		String expected = "abc";
 		String actual = Strings.insertPadded(null, 0, "abc");
 
@@ -37,39 +46,33 @@ public class StringsTest
 	}
 
 	@Test
-	public void insertStringTest2() {
-		String expected = "abc";
-		String actual = Strings.insertPadded("abc", 2, null);
+	public void test2() {
+		String expected = "";
+		String actual = Strings.insertPadded("", 0, null);
 
 		assertEquals(expected, actual);
 	}
 
-	@Test
-	public void insertStringTest3() {
-		String expected = "abc";
-		String actual = Strings.insertPadded("abc", -2, null);
-
-		assertEquals(expected, actual);
+	@Test(expected=IndexOutOfBoundsException.class)
+	public void test3() {
+		Strings.insertPadded("", -2, "abc");
 	}
 
-	@Test
-	public void insertStringTest4() {
-		String expected = "abc";
-		String actual = Strings.insertPadded("abc", 3, "abc");
-
-		assertEquals(expected, actual);
+	@Test(expected=IndexOutOfBoundsException.class)
+	public void test4() {
+		Strings.insertPadded("", 1, "abc");
 	}
 	
 	@Test
-	public void insertStringTest5() {
-		String expected = "abc";
+	public void test5() {
+		String expected = "";
 		String actual = Strings.insertPadded("", 0, "");
 
 		assertEquals(expected, actual);
 	}
 
 	@Test
-	public void insertStringTest6() {
+	public void test6() {
 		String expected = "abc";
 		String actual = Strings.insertPadded("", 0, "abc");
 
@@ -77,23 +80,7 @@ public class StringsTest
 	}
 
 	@Test
-	public void insertStringTest7() {
-		String expected = "abc";
-		String actual = Strings.insertPadded("", 2, "");
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void insertStringTest8() {
-		String expected = "abc";
-		String actual = Strings.insertPadded("", 2, "abc");
-
-		assertEquals(expected, actual);
-	}
-	
-	@Test
-	public void insertStringTest9() {
+	public void test7() {
 		String expected = "abc";
 		String actual = Strings.insertPadded("abc", 0, "");
 
@@ -101,15 +88,15 @@ public class StringsTest
 	}
 
 	@Test
-	public void insertStringTest10() {
+	public void test8() {
 		String expected = "abc abc";
 		String actual = Strings.insertPadded("abc", 0, "abc");
 
 		assertEquals(expected, actual);
 	}
-
+	
 	@Test
-	public void insertStringTest11() {
+	public void test9() {
 		String expected = "abc";
 		String actual = Strings.insertPadded("abc", 2, "");
 
@@ -117,25 +104,11 @@ public class StringsTest
 	}
 
 	@Test
-	public void insertStringTest12() {
+	public void test10() {
 		String expected = "ab abc c";
 		String actual = Strings.insertPadded("abc", 2, "abc");
 
 		assertEquals(expected, actual);
-	}
-
-	@Test
-	//PADDED TEST #1
-	public void insertPaddedTest13(){
-		//int random = randomFunction();
-		assertEquals("TestNULL", Strings.insertPadded("TestNULL", 10, null));
-	}
-	
-	@Test
-	//PADDED TEST #2
-	public void insertPaddedTestNot14(){
-		assertEquals("TestnotNUL helloworld L", Strings.insertPadded("TestnotNULL", 10, "helloworld"));
-		// "TestnotNUL helloworld L"
 	}
 	
 }
