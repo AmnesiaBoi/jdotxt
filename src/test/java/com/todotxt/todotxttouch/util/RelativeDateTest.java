@@ -14,11 +14,11 @@ import com.chschmid.jdotxt.gui.JdotxtGUI;
 public class RelativeDateTest 
 {
 	private static final SimpleDateFormat FORMAT = new SimpleDateFormat("yyyy-MM-dd");
-	private static final String N_MONTHS  = "dates_months_ago";
-	private static final String ONE_MONTH = "dates_one_month_ago";
-	private static final String N_DAYS    = "dates_days_ago";
-	private static final String ONE_DAY   = "dates_one_day_ago";
-	private static final String TODAY     = "dates_today";
+	private static final String N_MONTHS  = "2 months ago";
+	private static final String ONE_MONTH = "1 month ago";
+	private static final String N_DAYS    = "2 days ago";
+	private static final String ONE_DAY   = "1 day ago";
+	private static final String TODAY     = "today";
 	
 	
 	@Before
