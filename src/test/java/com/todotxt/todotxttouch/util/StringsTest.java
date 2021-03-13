@@ -111,4 +111,29 @@ public class StringsTest
 		assertEquals(expected, actual);
 	}
 	
+	@Test
+	public void insertPaddedTestBVA01() {
+		String expected = "abc abc";
+		String actual = Strings.insertPadded("abc", 0, "abc");
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void insertPaddedTestBVA02() {
+		String expected = "abc abc";
+		String actual = Strings.insertPadded("abc", 3, "abc");
+
+		assertEquals(expected, actual);
+	}
+
+	@Test (expected = IndexOutOfBoundsException.class)
+	public void insertPaddedTestBVA03() {
+		Strings.insertPadded("abc", -1, "abc");
+	}
+
+	@Test (expected = IndexOutOfBoundsException.class)
+	public void insertPaddedTestBVA04() {
+		Strings.insertPadded("abc", 4, "abc");
+	}
 }

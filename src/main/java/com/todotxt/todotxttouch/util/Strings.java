@@ -42,6 +42,19 @@ public final class Strings {
 	 *             if the insertAt is negative, or insertAt is larger than the
 	 *             length of s String object
 	 */
+
+	/* boundaries: <= 0 && <= s.length
+	 * BOUNDARY OFFSET >= 0
+	 *
+	 * offset = 0  ONPOINT
+	 * INT = -1 - OFF POINT
+	 *
+	 * BOUNDARY 2
+	 * s.length + 1 -> OFF POINT
+	 * s.length -> ONPOINT
+	 */
+
+	// string.length == upper boundary
 	public static String insertPadded(String s, int insertAt,
 			String stringToInsert) {
 		if (Strings.isEmptyOrNull(stringToInsert)) {

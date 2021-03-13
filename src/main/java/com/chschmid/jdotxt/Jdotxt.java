@@ -188,7 +188,18 @@ public class Jdotxt {
 	public static void onMacOSX() {
 		// Nothing so far
 	}
-	
+
+	/* boundaries: <= 0 && <= original.length
+	 * BOUNDARY OFFSET >= 0
+	 *
+	 * offset = 0  ONPOINT
+	 * INT = -1 - OFF POINT
+	 *
+	 * BOUNDARY 2
+	 * original.length +1 -> OFF POINT
+	 * original.length -> ONPOINT
+	 */
+
 	public static String insertReplaceString(String original, String replace, int offset) {
 		String a =  original.substring(0, Math.min(offset, original.length()));
 		String b;

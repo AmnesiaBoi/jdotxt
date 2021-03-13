@@ -103,7 +103,7 @@ public class CursorPositionCalculatorTest
 	{
 		int expected = 0;
 		int actual = CursorPositionCalculator.calculate(0, "abc", "abc");
-		
+
 		assertEquals(expected, actual);
 	}
 	
@@ -112,7 +112,7 @@ public class CursorPositionCalculatorTest
 	{
 		int expected = 0;
 		int actual = CursorPositionCalculator.calculate(2, "abc", "");
-		
+
 		assertEquals(expected, actual);
 	}
 	
@@ -121,7 +121,47 @@ public class CursorPositionCalculatorTest
 	{
 		int expected = 2;
 		int actual = CursorPositionCalculator.calculate(2, "abc", "abc");
-		
+
+		assertEquals(expected, actual);
+	}
+
+	// ONPOINT
+	@Test
+	public void calculateTestBVA01() 
+	{
+		int expected = 0;
+		int actual = CursorPositionCalculator.calculate(0, "abcdef", "abcdef");
+
+		assertEquals(expected, actual);
+	}
+
+	// OFFPOINT
+	@Test
+	public void calculateTestBVA02() 
+	{
+		int expected = 0;
+		int actual = CursorPositionCalculator.calculate(-1, "abcdef", "abcdef");
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void calculateTestBVA03() 
+	{
+		int expected = 6;
+		String priorValue = "abcdef";
+		int actual = CursorPositionCalculator.calculate(priorValue.length(), priorValue, "abcdef");
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void calculateTestBVA04() 
+	{
+		int expected = 6;
+		String priorValue = "abcdef";
+		int actual = CursorPositionCalculator.calculate(priorValue.length() + 1, priorValue, "abcdef");
+
 		assertEquals(expected, actual);
 	}
 }

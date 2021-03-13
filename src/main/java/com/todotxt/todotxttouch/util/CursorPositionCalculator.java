@@ -38,6 +38,18 @@ public final class CursorPositionCalculator {
 	 *         calculated position will be the position just after the string.
 	 *         If the newValue is null then the position will be 0.
 	 */
+
+	/* boundaries: <= 0 && <= priorValue.length
+	 * BOUNDARY OFFSET >= 0
+	 *
+	 * offset = 0  ONPOINT
+	 * INT = -1 - OFF POINT
+	 *
+	 * BOUNDARY 2
+	 * priorValue.length + 1 -> OFF POINT
+	 * priorValue.length -> ONPOINT
+	 */
+
 	public static final int calculate(int priorCursorPosition,
 			String priorValue, String newValue) {
 		if (newValue == null) {
