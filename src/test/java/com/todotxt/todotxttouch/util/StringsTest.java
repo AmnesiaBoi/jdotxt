@@ -8,7 +8,8 @@ public class StringsTest
 {
 
 	/*
-	 * Strings.insertPadded(String s, int insertAt, String stringToInsert)
+	 * Category Partition tests for:
+	 * 	 Strings.insertPadded(String s, int insertAt, String stringToInsert)
 	 * 
 	 * Variations:
 	 * 		s              : null, "", "abc"
@@ -35,8 +36,6 @@ public class StringsTest
 	 * 
 	 */
 	
-	// #1 String to Insert
-
 	@Test
 	public void insertPaddedTest1() {
 		String expected = "abc";
@@ -111,6 +110,20 @@ public class StringsTest
 		assertEquals(expected, actual);
 	}
 	
+	
+	
+	/*
+	 * Boundary Value Analysis tests for: 
+	 * 	 Strings.insertPadded(String s, int insertAt, String stringToInsert)
+	 * 
+	 * # | Boundary/Partition            | Type      | Value
+	 * ------------------------------------------------------------------------------------------
+	 * 1 | insertAt >= 0                 | On-point  | insertAt = 0
+	 * 2 |                               | Off-point | insertAt = -1
+	 * 3 | insertAt <= original.length() | On-point  | insertAt = original.length()
+	 * 4 |                               | Off-point | insertAt = original.length() + 1
+	 */
+	
 	@Test
 	public void insertPaddedTestBVA01() {
 		String expected = "abc abc";
@@ -119,8 +132,13 @@ public class StringsTest
 		assertEquals(expected, actual);
 	}
 
-	@Test
+	@Test (expected = IndexOutOfBoundsException.class)
 	public void insertPaddedTestBVA02() {
+		Strings.insertPadded("abc", -1, "abc");
+	}
+	
+	@Test
+	public void insertPaddedTestBVA03() {
 		String expected = "abc abc";
 		String actual = Strings.insertPadded("abc", 3, "abc");
 
@@ -128,12 +146,7 @@ public class StringsTest
 	}
 
 	@Test (expected = IndexOutOfBoundsException.class)
-	public void insertPaddedTestBVA03() {
-		Strings.insertPadded("abc", -1, "abc");
-	}
-
-	@Test (expected = IndexOutOfBoundsException.class)
 	public void insertPaddedTestBVA04() {
-		Strings.insertPadded("abc", 4, "abc");
+		Strings.insertPadded("abc", 3+1, "abc");
 	}
 }

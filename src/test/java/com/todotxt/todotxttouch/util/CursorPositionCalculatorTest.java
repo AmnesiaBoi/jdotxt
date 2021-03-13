@@ -8,7 +8,8 @@ public class CursorPositionCalculatorTest
 {
 	
 	/*
-	 *  CursorPosition.calculate(int priorCursorPosition, String priorValue, String newValue)
+	 *  Category Partition tests for:
+	 *    CursorPosition.calculate(int priorCursorPosition, String priorValue, String newValue)
 	 *  
 	 *  Variations:
 	 *  	priorCursorPosition: <0, 0, <=priorValue.length(), >priorValue.length()
@@ -124,8 +125,21 @@ public class CursorPositionCalculatorTest
 
 		assertEquals(expected, actual);
 	}
+	
+	
+	
+	/*
+	 * Boundary Value Analysis tests for: 
+	 * 	 CursorPosition.calculate(int priorCursorPosition, String priorValue, String newValue)
+	 * 
+	 * # | Boundary/Partition                         | Type      | Value
+	 * ------------------------------------------------------------------------------------------
+	 * 1 | priorCursorPosition >= 0                   | On-point  | priorCursorPosition = 0
+	 * 2 |                                            | Off-point | priorCursorPosition = -1
+	 * 3 | priorCursorPosition <= priorValue.length() | On-point  | priorCursorPosition = priorValue.length()
+	 * 4 |                                            | Off-point | priorCursorPosition = priorValue.length() + 1
+	 */
 
-	// ONPOINT
 	@Test
 	public void calculateTestBVA01() 
 	{
@@ -135,7 +149,6 @@ public class CursorPositionCalculatorTest
 		assertEquals(expected, actual);
 	}
 
-	// OFFPOINT
 	@Test
 	public void calculateTestBVA02() 
 	{
@@ -149,8 +162,7 @@ public class CursorPositionCalculatorTest
 	public void calculateTestBVA03() 
 	{
 		int expected = 6;
-		String priorValue = "abcdef";
-		int actual = CursorPositionCalculator.calculate(priorValue.length(), priorValue, "abcdef");
+		int actual = CursorPositionCalculator.calculate(6, "abcdef", "abcdef");
 
 		assertEquals(expected, actual);
 	}
@@ -159,8 +171,7 @@ public class CursorPositionCalculatorTest
 	public void calculateTestBVA04() 
 	{
 		int expected = 6;
-		String priorValue = "abcdef";
-		int actual = CursorPositionCalculator.calculate(priorValue.length() + 1, priorValue, "abcdef");
+		int actual = CursorPositionCalculator.calculate(6+1, "abcdef", "abcdef");
 
 		assertEquals(expected, actual);
 	}
