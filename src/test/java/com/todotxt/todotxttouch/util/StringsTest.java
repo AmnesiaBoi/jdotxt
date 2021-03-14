@@ -61,7 +61,7 @@ public class StringsTest
 	public void insertPaddedTest4() {
 		Strings.insertPadded("", 1, "abc");
 	}
-	
+
 	@Test
 	public void insertPaddedTest5() {
 		String expected = "";
@@ -93,7 +93,7 @@ public class StringsTest
 
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void insertPaddedTest9() {
 		String expected = "abc";
@@ -110,8 +110,7 @@ public class StringsTest
 		assertEquals(expected, actual);
 	}
 	
-	
-	
+
 	/*
 	 * Boundary Value Analysis tests for: 
 	 * 	 Strings.insertPadded(String s, int insertAt, String stringToInsert)
@@ -120,10 +119,10 @@ public class StringsTest
 	 * ------------------------------------------------------------------------------------------
 	 * 1 | insertAt >= 0                 | On-point  | insertAt = 0
 	 * 2 |                               | Off-point | insertAt = -1
-	 * 3 | insertAt <= original.length() | On-point  | insertAt = original.length()
-	 * 4 |                               | Off-point | insertAt = original.length() + 1
+	 * 3 | insertAt <= s.length()        | On-point  | insertAt = s.length()
+	 * 4 |                               | Off-point | insertAt = s.length() + 1
 	 */
-	
+
 	@Test
 	public void insertPaddedTestBVA01() {
 		String expected = "abc abc";
@@ -136,7 +135,7 @@ public class StringsTest
 	public void insertPaddedTestBVA02() {
 		Strings.insertPadded("abc", -1, "abc");
 	}
-	
+
 	@Test
 	public void insertPaddedTestBVA03() {
 		String expected = "abc abc";
