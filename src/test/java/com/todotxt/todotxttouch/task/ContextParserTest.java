@@ -88,4 +88,10 @@ public class ContextParserTest {
 		actual.addAll(ContextParser.getInstance().parse(task));
 		assertEquals(expected, actual);
 	}
+	@Test
+	public void testContextNull() {
+		task = null;
+		actual.addAll(ContextParser.getInstance().parse(task));
+		assertEquals(expected, actual);
+	}
 }

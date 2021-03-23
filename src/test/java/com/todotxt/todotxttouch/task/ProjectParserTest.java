@@ -88,5 +88,10 @@ public class ProjectParserTest {
 		actual.addAll(ProjectParser.getInstance().parse(task));
 		assertEquals(expected, actual);
 	}
-
+	@Test
+	public void testProjectNull() {
+		task = null;
+		actual.addAll(ProjectParser.getInstance().parse(task));
+		assertEquals(expected, actual);
+	}
 }

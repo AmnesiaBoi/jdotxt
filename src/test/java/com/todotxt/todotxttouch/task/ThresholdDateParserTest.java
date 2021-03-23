@@ -56,6 +56,12 @@ public class ThresholdDateParserTest {
         Date actual = ThresholdDateParser.getInstance().parseDueDate(task);
         assertNull(actual);
     }
+    @Test
+    public void nullDueDateParseTest() {
+        String task = null;
+        Date actual = ThresholdDateParser.getInstance().parseDueDate(task);
+        assertNull(actual);
+    }
 
     @Test
     public void dueThresholdTogetherParseTest() throws ParseException {
@@ -66,5 +72,12 @@ public class ThresholdDateParserTest {
         Date thr_expected = FORMAT.parse("2018-01-29");
         assertEquals(due_expected, due);
         assertEquals(thr_expected, thr);
+    }
+
+    @Test
+    public void exceptionThresholdDateParseTest() {
+        String task = "Threshold date t:2a00e-02-05";
+        Date actual = ThresholdDateParser.getInstance().parseThresholdDate(task);
+        assertNull(actual);
     }
 }

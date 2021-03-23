@@ -148,4 +148,19 @@ public class StringsTest
 	public void insertPaddedTestBVA04() {
 		Strings.insertPadded("abc", 3+1, "abc");
 	}
+
+	@Test
+	public void insertPaddedTestBVA05() {
+		String expected = "a abc abc";
+		String actual = Strings.insertPadded("a  abc", 2, "abc");
+
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void insertPaddedTestBVA06() {
+		String expected = "abc abc";
+		String actual = Strings.insertPadded(" abc", 0, "ab");
+
+		assertEquals(expected, actual);
+	}
 }
