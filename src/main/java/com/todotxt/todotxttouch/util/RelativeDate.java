@@ -42,7 +42,16 @@ public class RelativeDate {
 		return getRelativeDate(today, calendar);
 	}
 	
+	/**
+	 * 
+	 * @param d1
+	 * @param d2
+	 * @return relativeDate, in case any calendar is null it returns today
+	 */
 	public static String getRelativeDate(Calendar d1, Calendar d2) {
+		if (d1 == null || d2 == null)
+			return JdotxtGUI.lang.getWord("dates_today");
+		
 		long diff = d1.getTimeInMillis() - d2.getTimeInMillis();
 
 		if (diff < 0 || diff >= RelativeDate.YEAR) {
