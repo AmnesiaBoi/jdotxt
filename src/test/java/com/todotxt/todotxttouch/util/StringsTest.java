@@ -54,12 +54,12 @@ public class StringsTest
 
 	@Test(expected=IndexOutOfBoundsException.class)
 	public void insertPaddedTest3() {
-		Strings.insertPadded("", -2, "abc");
+		Strings.insertPadded("abc", -2, "abc");
 	}
 
 	@Test(expected=IndexOutOfBoundsException.class)
 	public void insertPaddedTest4() {
-		Strings.insertPadded("", 1, "abc");
+		Strings.insertPadded("abc", 5, "abc");
 	}
 
 	@Test
