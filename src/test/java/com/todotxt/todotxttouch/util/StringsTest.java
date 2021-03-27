@@ -158,7 +158,7 @@ public class StringsTest
 	}
 	@Test
 	public void insertPaddedTestBVA06() {
-		String expected = "abc abc";
+		String expected = "ab abc";
 		String actual = Strings.insertPadded(" abc", 0, "ab");
 
 		assertEquals(expected, actual);
