@@ -21,8 +21,8 @@ public class UtilTest
 	 * Combinations:   (R for Redundant)
 	 * 		#  , s         , delimeter, expected
 	 * 
-	 * 		1  , null      , delim    , NullPointerException
-	 * 		2  , no delim  , null     , NullPointerException
+	 * 		1  , null      , delim    , [""]
+	 * 		2  , no delim  , null     , [nodelim]
 	 * 
 	 *      3  , ""        , ""       , []
 	 *      4  , ""        , delim    , []
@@ -35,12 +35,18 @@ public class UtilTest
 	
 	@Test
 	public void splitTest1() {
-		Util.split(null, ";");
+		List<String> expected = new ArrayList<>();
+		List<String> actual = Util.split(null, ";");
+		
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	public void splitTest2() {
-		Util.split("abcdef", null);
+		List<String> expected = new ArrayList<>();
+		List<String> actual = Util.split("abcdef", null);
+		
+		assertEquals(expected, actual);
 	}
 
 	@Test 
