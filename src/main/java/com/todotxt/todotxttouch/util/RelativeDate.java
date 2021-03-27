@@ -6,6 +6,9 @@
 package com.todotxt.todotxttouch.util;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -52,32 +55,40 @@ public class RelativeDate {
 		if (d1 == null || d2 == null)
 			return JdotxtGUI.lang.getWord("dates_today");
 		
-		long diff = d1.getTimeInMillis() - d2.getTimeInMillis();
+		// Assumes the calendars have the same timezone
+		ZoneId zoneId = d1.getTimeZone().toZoneId();
 
-		if (diff < 0 || diff >= RelativeDate.YEAR) {
+		// Convertint to a more recent and flexible Java object
+		LocalDateTime ldt1 = LocalDateTime.ofInstant(d1.toInstant(), zoneId);
+		LocalDateTime ldt2 = LocalDateTime.ofInstant(d2.toInstant(), zoneId);
+
+		long diff = ldt1.until(ldt2, ChronoUnit.MILLIS);
+		
+		
+		if (Math.abs(ldt1.getYear() - ldt2.getYear()) >= 1) {
 			// future or far in past,
 			// just return yyyy-mm-dd
 			return sdf.format(d2.getTime());
 		}
 
-		if (diff >= 60 * RelativeDate.DAY) {
+		if (Math.abs(ldt1.getMonthValue() - ldt2.getMonthValue()) > 1) {
 			// N months ago
-			long months = diff / (30 * DAY);
+			long months = Math.abs(ldt1.getMonthValue() - ldt2.getMonthValue());
 			return String.format(JdotxtGUI.lang.getWord("dates_months_ago"), months);
 		}
 
-		if (diff >= 30 * RelativeDate.DAY) {
+		if (Math.abs(ldt1.getMonthValue() - ldt2.getMonthValue()) == 1) {
 			// 1 month ago
 			return JdotxtGUI.lang.getWord("dates_one_month_ago");
 		}
 
-		if (diff >= 2 * RelativeDate.DAY) {
+		if (Math.abs(ldt1.getDayOfMonth() - ldt2.getDayOfMonth()) > 1) {
 			// more than 2 days ago
-			long days = diff / DAY;
+			long days = Math.abs(ldt1.getDayOfMonth() - ldt2.getDayOfMonth());
 			return String.format(JdotxtGUI.lang.getWord("dates_days_ago"), days);
 		}
 
-		if (diff >= 1 * RelativeDate.DAY) {
+		if (Math.abs(ldt1.getDayOfMonth() - ldt2.getDayOfMonth()) == 1) {
 			// 1 day ago
 			return JdotxtGUI.lang.getWord("dates_one_day_ago");
 		}
