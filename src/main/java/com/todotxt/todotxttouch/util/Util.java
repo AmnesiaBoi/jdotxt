@@ -415,19 +415,16 @@ public class Util {
 	 * 
 	 */
 
-	public static ArrayList<String> split(String s, String delimeter) {
+	public static List<String> split(String s, String delimeter) {
 		if (Strings.isBlank(s)) {
 			return new ArrayList<String>();
 		}
 		
 		if (delimeter == null) {
-			ArrayList<String> list = new ArrayList<>();
-			list.add(s);
-			
-			return list;
+			return Arrays.asList(s);
 		}
 		
-		return new ArrayList<String>(Arrays.asList(s.split(delimeter)));
+		return Arrays.asList(s.split(delimeter));
 	}
 	
     public static ImageIcon createImageIcon(String path) {
