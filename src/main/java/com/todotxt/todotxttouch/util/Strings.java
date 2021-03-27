@@ -74,7 +74,7 @@ public final class Strings {
 			}
 			newText.append(stringToInsert);
 			String postItem = s.substring(insertAt);
-			if (postItem.indexOf(SINGLE_SPACE) != 0) {
+			if (postItem.indexOf(SINGLE_SPACE) != 0 && !postItem.equals("")) {
 				newText.append(SINGLE_SPACE);
 			}
 			newText.append(postItem);
