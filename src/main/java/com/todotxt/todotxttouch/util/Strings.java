@@ -60,6 +60,11 @@ public final class Strings {
 		if (Strings.isEmptyOrNull(stringToInsert)) {
 			return s;
 		}
+		
+		if (Strings.isEmptyOrNull(s))
+		{
+			return stringToInsert;
+		}
 
 		if (insertAt < 0) {
 			throw new IndexOutOfBoundsException("Invalid insertAt of ["
