@@ -59,6 +59,10 @@ public final class CursorPositionCalculator {
 		if (priorValue == null) {
 			return newValue.length();
 		}
+		
+		if (priorCursorPosition < 0) {
+			priorCursorPosition = 0;
+		}
 
 		int pos = priorCursorPosition
 				+ (newValue.length() - priorValue.length());
