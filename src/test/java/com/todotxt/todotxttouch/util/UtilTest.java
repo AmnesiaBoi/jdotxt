@@ -33,12 +33,12 @@ public class UtilTest
 	 *      
 	 */
 	
-	@Test(expected=NullPointerException.class)
+	@Test
 	public void splitTest1() {
 		Util.split(null, ";");
 	}
 
-	@Test(expected=NullPointerException.class)
+	@Test
 	public void splitTest2() {
 		Util.split("abcdef", null);
 	}
