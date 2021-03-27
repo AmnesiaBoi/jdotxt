@@ -201,6 +201,10 @@ public class Jdotxt {
 	 */
 
 	public static String insertReplaceString(String original, String replace, int offset) {
+		if (offset < 0 || offset > original.length()) {
+			throw new IndexOutOfBoundsException();
+		}
+		
 		String a =  original.substring(0, Math.min(offset, original.length()));
 		String b;
 		if (original.length() > (offset + replace.length())) b = original.substring(offset + replace.length(), original.length());
