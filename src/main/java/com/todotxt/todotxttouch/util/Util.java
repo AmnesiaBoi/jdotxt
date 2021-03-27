@@ -384,6 +384,12 @@ public class Util {
 		if (s == null) {
 			return "";
 		}
+		
+		// Guarantee delimiter is not null
+		if (delimiter == null) {
+			delimiter = "";
+		}
+		
 		Iterator<?> iter = s.iterator();
 		while (iter.hasNext()) {
 			builder.append(iter.next());

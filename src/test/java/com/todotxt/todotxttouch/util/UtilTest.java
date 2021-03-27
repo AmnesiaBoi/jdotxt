@@ -111,16 +111,21 @@ public class UtilTest
 	 *      6  , some , delim    , some[0] + delim + some[1] ..
 	 */
 	
-	@Test(expected=NullPointerException.class)
+	@Test
 	public void joinTest1() {
-		List<String> original = null;
-		Util.join(original, ",");
+		String expected = "";
+		String actual = Util.join(null, ",");
+		
+		assertEquals(expected, actual);
 	}
-
-	@Test(expected=NullPointerException.class)
+	
+	@Test
 	public void joinTest2() {
 		List<String> original = Arrays.asList("abc", "def");
-		Util.join(original, null);
+		String expected = "abcdef";
+		String actual = Util.join(original, null);
+		
+		assertEquals(expected, actual);
 	}
 
 	@Test
