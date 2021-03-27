@@ -419,6 +419,14 @@ public class Util {
 		if (Strings.isBlank(s)) {
 			return new ArrayList<String>();
 		}
+		
+		if (delimeter == null) {
+			ArrayList<String> list = new ArrayList<>();
+			list.add(s);
+			
+			return list;
+		}
+		
 		return new ArrayList<String>(Arrays.asList(s.split(delimeter)));
 	}
 	

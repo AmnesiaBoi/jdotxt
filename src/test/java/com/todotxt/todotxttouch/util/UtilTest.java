@@ -43,7 +43,7 @@ public class UtilTest
 
 	@Test
 	public void splitTest2() {
-		List<String> expected = new ArrayList<>();
+		List<String> expected = Arrays.asList("abcdef");
 		List<String> actual = Util.split("abcdef", null);
 		
 		assertEquals(expected, actual);
