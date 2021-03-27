@@ -1,4 +1,4 @@
-package com.todotxt.todotxttouch.util;
+package com.chschmid;
 
 import static org.junit.Assert.assertEquals;
 
