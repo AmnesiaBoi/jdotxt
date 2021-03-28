@@ -15,9 +15,12 @@ public class PathTest {
 	public void tPathFileNameEndsSlashTest() {
 		assertEquals(Path.fileName("file/"), "file");
 		assertEquals(Path.fileName("file"), "file");
-		
 	}
 
+	@Test
+	public void tPathFileNameNotEndsSlashTest() {
+		assertEquals(Path.fileName("file"), "file");
+	}
 	@Test
 	public void ParentPathEndingSlahTest(){
 		assertEquals(Path.parentPath("/"),"");
