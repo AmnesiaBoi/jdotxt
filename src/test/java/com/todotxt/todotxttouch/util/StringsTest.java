@@ -235,17 +235,6 @@ public class StringsTest
 	}
 
 	@Test
-	public void insertPaddedIfNeededTest3() {
-		int insertAt = 0;
-		String s = "abcdef";
-		String stringToInsert = "xxx";
-		String expected = "xxx abcdef";
-		String actual = Strings.insertPaddedIfNeeded(s, insertAt, stringToInsert);
-		
-		assertEquals(expected, actual);
-	}
-
-	@Test
 	public void insertPaddedIfNeededTest4() {
 		int insertAt = 0;
 		String s = "abc defghi";
@@ -268,33 +257,11 @@ public class StringsTest
 	}
 
 	@Test(expected = IndexOutOfBoundsException.class)
-	public void insertPaddedIfNeededTest6() {
-		int insertAt = 8;
-		String s = "abcdef";
-		String stringToInsert = "xxx";
-		String expected = "abcdefxxx";
-		String actual = Strings.insertPaddedIfNeeded(s, insertAt, stringToInsert);
-		
-		assertEquals(expected, actual);
-	}
-
-	@Test(expected = IndexOutOfBoundsException.class)
 	public void insertPaddedIfNeededTest7() {
 		int insertAt = -3;
 		String s = "abcdef";
 		String stringToInsert = "abc";
 		String expected = "abcdef";
-		String actual = Strings.insertPaddedIfNeeded(s, insertAt, stringToInsert);
-		
-		assertEquals(expected, actual);
-	}
-
-	@Test(expected = NullPointerException.class)
-	public void insertPaddedIfNeededTest8() {
-		int insertAt = 1;
-		String s = null;
-		String stringToInsert = "xxx";
-		String expected = "xxx";
 		String actual = Strings.insertPaddedIfNeeded(s, insertAt, stringToInsert);
 		
 		assertEquals(expected, actual);
@@ -315,8 +282,9 @@ public class StringsTest
 	public void insertPaddedIfNeededTest10() {
 		int insertAt = 1;
 		String s = "abc";
-		String stringToInsert = "";
-		String expected = "abc";
+		String stringToInsert = "abc";
+		
+		String expected = "abc ";
 		String actual = Strings.insertPaddedIfNeeded(s, insertAt, stringToInsert);
 		
 		assertEquals(expected, actual);
