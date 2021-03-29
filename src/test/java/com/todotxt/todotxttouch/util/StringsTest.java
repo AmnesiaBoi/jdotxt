@@ -255,7 +255,7 @@ public class StringsTest
 		
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void insertPaddedIfNeededTest5() {
 		int insertAt = 0;
