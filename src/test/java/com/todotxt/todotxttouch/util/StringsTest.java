@@ -1,6 +1,8 @@
 package com.todotxt.todotxttouch.util;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -163,4 +165,201 @@ public class StringsTest
 
 		assertEquals(expected, actual);
 	}
+
+	
+	/* Line coverage tests
+	 * 
+	 * isBlank
+	 * 
+	 */
+
+	@Test
+	public void isBlankTest1() {
+		String expected = null;
+		String s = null;
+		boolean actual = Strings.isBlank(s);
+
+		assertTrue(expected, actual);
+	}
+
+	@Test
+	public void isBlankTest2() {
+		String expected = "";
+		String s = "";
+		boolean actual = Strings.isBlank(s);
+
+		assertTrue(expected, actual);
+	}
+
+	@Test
+	public void isBlankTest3() {
+		String expected = "abcdef";
+		String s = "abcdef";
+		boolean actual = Strings.isBlank(s);
+
+		assertFalse(expected, actual);
+	}
+
+	@Test
+	public void isBlankTest4() {
+		String expected = " ";
+		String s = " ";
+		boolean actual = Strings.isBlank(s);
+
+		assertTrue(expected, actual);
+	}
+
+	/*
+	 * insertPaddedIfNeeded
+	 */
+	@Test
+	public void insertPaddedIfNeededTest1() {
+		int insertAt = 3;
+		String s = "abcdef";
+		String stringToInsert = "xxx";
+		String expected = "abc xxx def";
+		String actual = Strings.insertPaddedIfNeeded(s, insertAt, stringToInsert);
+		
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void insertPaddedIfNeededTest2() {
+		int insertAt = 3;
+		String s = "abc def ghi";
+		String stringToInsert = "def";
+		String expected = "abc def ghi ";
+		String actual = Strings.insertPaddedIfNeeded(s, insertAt, stringToInsert);
+		
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void insertPaddedIfNeededTest3() {
+		int insertAt = 0;
+		String s = "abcdef";
+		String stringToInsert = "xxx";
+		String expected = "xxx abcdef";
+		String actual = Strings.insertPaddedIfNeeded(s, insertAt, stringToInsert);
+		
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void insertPaddedIfNeededTest4() {
+		int insertAt = 0;
+		String s = "abc defghi";
+		String stringToInsert = "abc";
+		String expected = "abc defghi ";
+		String actual = Strings.insertPaddedIfNeeded(s, insertAt, stringToInsert);
+		
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void insertPaddedIfNeededTest5() {
+		int insertAt = 0;
+		String s = "";
+		String stringToInsert = "xxx";
+		String expected = "xxx";
+		String actual = Strings.insertPaddedIfNeeded(s, insertAt, stringToInsert);
+		
+		assertEquals(expected, actual);
+	}
+
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void insertPaddedIfNeededTest6() {
+		int insertAt = 8;
+		String s = "abcdef";
+		String stringToInsert = "xxx";
+		String expected = "abcdefxxx";
+		String actual = Strings.insertPaddedIfNeeded(s, insertAt, stringToInsert);
+		
+		assertEquals(expected, actual);
+	}
+
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void insertPaddedIfNeededTest7() {
+		int insertAt = -3;
+		String s = "abcdef";
+		String stringToInsert = "abc";
+		String expected = "abcdef";
+		String actual = Strings.insertPaddedIfNeeded(s, insertAt, stringToInsert);
+		
+		assertEquals(expected, actual);
+	}
+
+	@Test(expected = NullPointerException.class)
+	public void insertPaddedIfNeededTest8() {
+		int insertAt = 1;
+		String s = null;
+		String stringToInsert = "xxx";
+		String expected = "xxx";
+		String actual = Strings.insertPaddedIfNeeded(s, insertAt, stringToInsert);
+		
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void insertPaddedIfNeededTest9() {
+		int insertAt = 1;
+		String s = "abc";
+		String stringToInsert = null;
+		String expected = "abc";
+		String actual = Strings.insertPaddedIfNeeded(s, insertAt, stringToInsert);
+		
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void insertPaddedIfNeededTest10() {
+		int insertAt = 1;
+		String s = "abc";
+		String stringToInsert = "";
+		String expected = "abc";
+		String actual = Strings.insertPaddedIfNeeded(s, insertAt, stringToInsert);
+		
+		assertEquals(expected, actual);
+	}
+
+	/*
+	 * EmptyOrNull
+	 */
+
+	@Test
+	public void EmptyOrNullTest1() {
+		String expected = null;
+		String s = null;
+		boolean actual = Strings.isEmptyOrNull(s);
+
+		assertTrue(expected, actual);
+	}
+	
+	@Test
+	public void EmptyOrNullTest2() {
+		String expected = "";
+		String s = "";
+		boolean actual = Strings.isEmptyOrNull(s);
+
+		assertTrue(expected, actual);
+	}
+
+	@Test
+	public void EmptyOrNullTest3() {
+		String expected = "abcdef";
+		String s = "abcdef";
+		boolean actual = Strings.isEmptyOrNull(s);
+
+		assertFalse(expected, actual);
+	}
+
+	@Test
+	public void EmptyOrNullTest4() {
+		String expected = " ";
+		String s = " ";
+		boolean actual = Strings.isEmptyOrNull(s);
+
+		assertFalse(expected, actual);
+	}
+
 }
