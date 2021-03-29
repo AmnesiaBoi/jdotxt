@@ -8,15 +8,11 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.todotxt.todotxttouch.util.Tree;
-
 public class ByPriorityFilterTest {
 	
 	/*
 	 * ByPriorityFilter::new(List<Priority> priorities)
 	 */
-	
-	private static final String String = null;
 
 	@Test
 	public void testNewPriorityFilterNullPriorities()
@@ -89,55 +85,5 @@ public class ByPriorityFilterTest {
 		boolean actual = filter.apply(t);
 		
 		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void PriorityRangeTest1() {
-		List<Priority> expected = new ArrayList<>();
-		expected.add(Priority.A);
-		expected.add(Priority.B);
-		expected.add(Priority.C);
-		expected.add(Priority.D);
-		expected.add(Priority.E);
-		expected.add(Priority.F);
-
-		assertEquals(expected, Priority.range(Priority.A, Priority.F));
-	}
-
-	@Test
-	public void PriorityRangeTest2() {
-		List<Priority> expected = new ArrayList<>();
-		expected.add(Priority.F);
-		expected.add(Priority.E);
-		expected.add(Priority.D);
-		expected.add(Priority.C);
-		expected.add(Priority.B);
-		expected.add(Priority.A);
-
-		assertEquals(expected, Priority.range(Priority.F, Priority.A));
-	}
-
-	@Test
-	public void PriorityRangeTest3() {
-		List<Priority> expected = new ArrayList<>();
-		expected.add(Priority.B);
-		expected.add(Priority.C);
-		expected.add(Priority.D);
-		expected.add(Priority.E);
-		expected.add(Priority.F);
-
-		assertEquals(expected, Priority.rangeInCode(Priority.B, Priority.F));
-	}
-
-	@Test
-	public void PriorityRangeTest4() {
-		List<Priority> expected = new ArrayList<>();
-		expected.add(Priority.X);
-		expected.add(Priority.C);
-		expected.add(Priority.D);
-		expected.add(Priority.E);
-		expected.add(Priority.F);
-
-		assertEquals(expected, Priority.rangeInCode(Priority.X, Priority.F));
 	}
 }
