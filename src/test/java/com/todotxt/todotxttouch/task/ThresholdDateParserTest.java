@@ -62,4 +62,13 @@ public class ThresholdDateParserTest {
         assertEquals(due_expected, due);
         assertEquals(thr_expected, thr);
     }
+    
+    @Test
+    public void testParseThresholdDateNullText()
+    {
+    	Date actual = ThresholdDateParser.getInstance().parseThresholdDate(null);
+    	Date expected = null;
+    	
+    	assertEquals(expected, actual);
+    }
 }
