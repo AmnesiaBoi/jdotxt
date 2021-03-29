@@ -284,7 +284,7 @@ public class StringsTest
 		String s = "abc";
 		String stringToInsert = "abc";
 		
-		String expected = "abc";
+		String expected = "abc ";
 		String actual = Strings.insertPaddedIfNeeded(s, insertAt, stringToInsert);
 		
 		assertEquals(expected, actual);
