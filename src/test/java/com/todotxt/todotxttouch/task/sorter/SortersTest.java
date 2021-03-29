@@ -297,7 +297,7 @@ public class SortersTest {
 		
 		Task t1 = new Task(1, "t:2021-01-01");
 		
-		assertEquals(1, sorter.compare(t0, t1));
+		assertEquals(-1, sorter.compare(t0, t1));
 	}
 	
 	@Test
@@ -309,7 +309,7 @@ public class SortersTest {
 		
 		Task t1 = new Task(1, "t:2021-01-01");
 		
-		assertEquals(-1, sorter.compare(t0, t1));
+		assertEquals(1, sorter.compare(t0, t1));
 	}
 	
 	/*
@@ -407,7 +407,7 @@ public class SortersTest {
 		
 		Task t1 = new Task(1, "due:2021-01-01");
 		
-		assertEquals(1, sorter.compare(t0, t1));
+		assertEquals(-1, sorter.compare(t0, t1));
 	}
 	
 	@Test
@@ -419,7 +419,7 @@ public class SortersTest {
 		
 		Task t1 = new Task(1, "due:2021-01-01");
 		
-		assertEquals(-1, sorter.compare(t0, t1));
+		assertEquals(1, sorter.compare(t0, t1));
 	}
 	
 	/*
@@ -441,7 +441,7 @@ public class SortersTest {
 		Date d1 = null;
 		Date d2 = new Date();
 		
-		assertEquals(1, Sorters.compareDates(d1, d2, false));
+		assertEquals(-1, Sorters.compareDates(d1, d2, false));
 	}
 	
 	@Test
@@ -450,6 +450,6 @@ public class SortersTest {
 		Date d1 = new Date();
 		Date d2 = null;
 		
-		assertEquals(-1, Sorters.compareDates(d1, d2, false));
+		assertEquals(1, Sorters.compareDates(d1, d2, false));
 	}
 }
