@@ -135,9 +135,4 @@ public enum Priority {
 		}
 		return NONE;
 	}
-
-	void add(String string) {
-		// TODO Auto-generated method stub
-		
-	}
 }
