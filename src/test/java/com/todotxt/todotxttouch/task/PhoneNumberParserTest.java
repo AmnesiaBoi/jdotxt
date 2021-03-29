@@ -21,14 +21,3 @@ public class PhoneNumberParserTest {
 		assertEquals(expected, actual);
 	}
 }
-
-/*
-String expected = "912345679";
-String<inputText> actual = "912345679";
-List<String> actual = new ArrayList<>();
-
-actual = inputText;
-
-
-
-*/
