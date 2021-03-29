@@ -68,7 +68,6 @@
     </dependencies>
 
     <build>
-    
     	<pluginManagement>
             <plugins>
                 <plugin>
@@ -186,6 +185,12 @@
                         </goals>
                     </execution>
                 </executions>
+				<configuration>
+					<excludes>
+				          <exclude>com.chschmid.jdotxt.gui*</exclude>
+				          <exclude>com.chschmid.jdotxt.gui.utils*</exclude>
+			        </excludes>
+		        </configuration>
             </plugin>
         </plugins>
     </build>
