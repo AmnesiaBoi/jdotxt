@@ -1,9 +1,8 @@
 package com.todotxt.todotxttouch.task.sorter;
 
-import com.todotxt.todotxttouch.task.Task;
-
-import java.util.Date;
 import java.util.List;
+
+import com.todotxt.todotxttouch.task.Task;
 
 public enum Sorters {
     ID ("") {
