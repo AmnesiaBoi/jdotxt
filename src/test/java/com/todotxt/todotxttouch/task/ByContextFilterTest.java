@@ -46,14 +46,10 @@ public class ByContextFilterTest
 	 */
 	
 	@Test
-	public void testFilterApply()
-	{
+	public void testFilterApply(){
 		List<String> contexts = Arrays.asList("c1");
-		
 		ByContextFilter filter = new ByContextFilter(contexts);
-		
 		Task t = new Task(0, "@c1");
-		
 		boolean expected = true;
 		boolean actual = filter.apply(t);
 		
@@ -61,14 +57,10 @@ public class ByContextFilterTest
 	}
 	
 	@Test
-	public void testFilterApplyTaskNoContexts()
-	{
+	public void testFilterApplyTaskNoContexts(){
 		List<String> contexts = Arrays.asList("c1");
-		
 		ByContextFilter filter = new ByContextFilter(contexts);
-		
 		Task t = new Task();
-		
 		boolean expected = false;
 		boolean actual = filter.apply(t);
 		
@@ -79,11 +71,8 @@ public class ByContextFilterTest
 	public void testFilterApplyNoContexts()
 	{
 		List<String> contexts = new ArrayList<>();
-		
 		ByContextFilter filter = new ByContextFilter(contexts);
-		
 		Task t = new Task(0, "@c1");
-		
 		boolean expected = true;
 		boolean actual = filter.apply(t);
 		
@@ -91,14 +80,10 @@ public class ByContextFilterTest
 	}
 	
 	@Test
-	public void testFilterApplyNoMatch()
-	{
+	public void testFilterApplyNoMatch(){
 		List<String> contexts = Arrays.asList("c1");
-		
 		ByContextFilter filter = new ByContextFilter(contexts);
-		
 		Task t = new Task(0, "@c2");
-		
 		boolean expected = false;
 		boolean actual = filter.apply(t);
 		
@@ -106,14 +91,10 @@ public class ByContextFilterTest
 	}
 	
 	@Test
-	public void testEmptyFilterApplyNoMatch()
-	{
+	public void testEmptyFilterApplyNoMatch(){
 		List<String> contexts = Arrays.asList("-");
-		
 		ByContextFilter filter = new ByContextFilter(contexts);
-		
 		Task t = new Task(0, "@c2");
-		
 		boolean expected = false;
 		boolean actual = filter.apply(t);
 		
@@ -121,14 +102,10 @@ public class ByContextFilterTest
 	}
 	
 	@Test
-	public void testEmptyFilterApplyMatch()
-	{
+	public void testEmptyFilterApplyMatch(){
 		List<String> contexts = Arrays.asList("-");
-		
 		ByContextFilter filter = new ByContextFilter(contexts);
-		
 		Task t = new Task();
-		
 		boolean expected = true;
 		boolean actual = filter.apply(t);
 		

@@ -10,11 +10,7 @@ import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * @see <a href="https://github.com/ginatrapani/todo.txt-cli/wiki/The-Todo.txt-Format">Todo.txt Format Specification</a>
- */
 public class ProjectParserTest {
-
 	private String task;
 	private Set<String> expected;
 	private Set<String> actual;
@@ -27,71 +23,19 @@ public class ProjectParserTest {
 	}
 
 	@Test
-	public void testNoProject1() {
-		task = "Buy flour, eggs and milk";
-		expected = Collections.emptySet();
+	public void ProjectParserTest1() {
+		task = "+prankTime 2021-04-01 do cool prank";
+		expected.add("prankTime");
 		actual.addAll(ProjectParser.getInstance().parse(task));
+
 		assertEquals(expected, actual);
 	}
 
 	@Test
-	public void testNoProject2() {
-		task = "Find k such that k+k=2";
-		expected = Collections.emptySet();
-		actual.addAll(ProjectParser.getInstance().parse(task));
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testAsciiProjects() {
-		task = "Buy flour, eggs and milk +groceries +birthdayCake23";
-		expected.addAll(Arrays.asList(
-				new String[] { "birthdayCake23", "groceries" }));
-		actual.addAll(ProjectParser.getInstance().parse(task));
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	public void testCyrillicProjects() {
-		task = "Купить муку, яйца и молоко +продукты +праздничныйТорт23";
-		expected.addAll(Arrays.asList(
-				new String[] { "продукты", "праздничныйТорт23" }));
-		actual.addAll(ProjectParser.getInstance().parse(task));
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	// This is not allowed by spec if you read it literally
-	public void testProjectComesFirst() {
-		task = "+groceries Buy flour, eggs and milk";
-		expected.add("groceries");
-		actual.addAll(ProjectParser.getInstance().parse(task));
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	// This is explicitly forbidden by spec but we
-	// have a simplistic implementation
-	public void testProjectComesBeforePrio() {
-		task = "+groceries (A) Buy flour, eggs and milk";
-		expected.add("groceries");
-		actual.addAll(ProjectParser.getInstance().parse(task));
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	// This is explicitly forbidden by spec but we
-	// have a simplistic implementation
-	public void testProjectComesBeforeDate() {
-		task = "+groceries 2016-03-05 Buy flour, eggs and milk";
-		expected.add("groceries");
-		actual.addAll(ProjectParser.getInstance().parse(task));
-		assertEquals(expected, actual);
-	}
-	@Test
-	public void testProjectNull() {
+	public void ProjectParserTest2() {
 		task = null;
 		actual.addAll(ProjectParser.getInstance().parse(task));
+
 		assertEquals(expected, actual);
 	}
 }
