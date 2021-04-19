@@ -115,6 +115,9 @@ public class UtilTest
 	 *      4  , empty, delim    , ""
 	 *      5  , some , ""       , some[0] + some[1] ..
 	 *      6  , some , delim    , some[0] + delim + some[1] ..
+	 *      
+	 *      # dataflow coverage
+	 *      7 , single, delim    , single[0] ..
 	 */
 	
 	@Test
@@ -165,6 +168,18 @@ public class UtilTest
 	public void joinTest6() {
 		List<String> original = Arrays.asList("abc", "def");
 		String expected = "abc,def";
+		String actual = Util.join(original, ",");
+
+		assertEquals(expected, actual);
+	}
+	
+	/*
+	 * path coverage tests
+	 */
+	@Test
+	public void joinTest7() {
+		List<String> original = Arrays.asList("abc");
+		String expected = "abc";
 		String actual = Util.join(original, ",");
 
 		assertEquals(expected, actual);
