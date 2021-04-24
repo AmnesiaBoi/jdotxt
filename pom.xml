@@ -222,6 +222,12 @@
                 	</rules>
                 </configuration>
             </plugin>
+
+            <plugin>
+    			<groupId>org.pitest</groupId>
+    			<artifactId>pitest-maven</artifactId>
+    			<version>1.6.5</version>
+ 			</plugin> 
         </plugins>
     </build>
 </project>
