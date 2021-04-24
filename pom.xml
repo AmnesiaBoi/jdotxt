@@ -227,6 +227,11 @@
     			<groupId>org.pitest</groupId>
     			<artifactId>pitest-maven</artifactId>
     			<version>1.6.5</version>
+    			<configuration>
+    				<excludedClasses>
+    					<excludedClasse>com.chschmid.jdotxt.*</excludedClasse>
+    				</excludedClasses>
+    			</configuration>
  			</plugin> 
         </plugins>
     </build>
