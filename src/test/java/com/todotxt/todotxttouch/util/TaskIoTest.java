@@ -119,10 +119,6 @@ public class TaskIoTest {
 		// Something was printed to the console as an error message
 		assertFalse(out.toString().isEmpty());
 	}
-	/*
-	 * new
-
-	BREAKS MUTATION TEST due to "\r"
 
 	@Test
 	public void writeToFileWithSlashR() throws IOException
@@ -135,11 +131,31 @@ public class TaskIoTest {
 		List<String> expected = Arrays.asList("task +project");
 		List<String> actual = new ArrayList<>();
 		Scanner sc = new Scanner(temporary);
+		while(sc.hasNextLine()) {
+			String s = sc.nextLine();
+			if(!s.isEmpty())
+				actual.add(s);
+		}
+		sc.close();
+		
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void writeToFileWithSlashR2() throws IOException
+	{
+		List<Task> tasks = Arrays.asList(new Task(0, ""));
+		File temporary = File.createTempFile("ab.;,=[1]", null);
+		
+		TaskIo.writeToFile(tasks, temporary);
+		
+		List<String> expected = Arrays.asList("");
+		List<String> actual = new ArrayList<>();
+		Scanner sc = new Scanner(temporary);
 		while(sc.hasNextLine())
 			actual.add(sc.nextLine());
 		sc.close();
 		
 		assertEquals(expected, actual);
 	}
-	 */
 }
