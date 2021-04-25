@@ -2,7 +2,9 @@ package com.todotxt.todotxttouch.task.sorter;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -57,7 +59,22 @@ public class SortersTest {
 		
 		sorter.compare(t0, t1);
 	}
-	
+
+	/*
+	 * new
+	 */
+
+	@Test
+	public void testSorterIdDescending1()
+	{
+		Sorter<Task> sorter = Sorters.ID.ascending();
+
+		Task t0 = new Task(10, "");
+		Task t1 = new Task(11, "");
+
+		assertEquals(-1, sorter.compare(t0, t1));
+	}
+
 	/*
 	 * Sorters.PRIORITY
 	 */
@@ -399,7 +416,7 @@ public class SortersTest {
 	 */
 	
 	@Test
-	public void testSorterDueDateAscending()
+	public void testSorterDueDateAscending()	
 	{
 		Sorter<Task> sorter = Sorters.DUE_DATE.ascending();
 		
@@ -451,5 +468,57 @@ public class SortersTest {
 		Date d2 = null;
 		
 		assertEquals(1, Sorters.compareDates(d1, d2, false));
+	}
+	
+	/*
+	 * new
+	 */
+	@Test
+	public void testCompareList()
+	{
+		List<String> l1 = Arrays.asList(null, "B", "C");
+		List<String> l2 = Arrays.asList(null, null, "F");
+		
+		assertEquals(1, Sorters.compareLists(l1, l2));
+	}
+	@Test
+	public void testCompareList1()
+	{
+		List<String> l1 = Arrays.asList(null, null, "A");
+		List<String> l2 = Arrays.asList(null, null);
+		
+		assertEquals(1, Sorters.compareLists(l1, l2));
+	}
+	@Test
+	public void testCompareList2()
+	{
+		List<String> l1 = Arrays.asList("A", "B");
+		List<String> l2 = Arrays.asList("A", "B");
+		
+		assertEquals(0, Sorters.compareLists(l1, l2));
+	}
+	@Test
+	public void testCompareList3()
+	{
+		List<String> l1 = Arrays.asList("A", "B", "C");
+		List<String> l2 = Arrays.asList("D", "E", "F");
+		
+		assertEquals(-3, Sorters.compareLists(l1, l2));
+	}
+	@Test
+	public void testCompareList4()
+	{
+		List<String> l1 = Arrays.asList(null, "B", "C");
+		List<String> l2 = Arrays.asList("D", "E", "F");
+		
+		assertEquals(-1, Sorters.compareLists(l1, l2));
+	}
+	@Test
+	public void testgetName1()
+	{
+		Sorters t = Sorters.TEXT;
+		String expected = "Task Text";
+
+		assertEquals(expected, t.getName());
 	}
 }

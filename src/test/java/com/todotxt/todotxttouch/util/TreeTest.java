@@ -39,6 +39,24 @@ public class TreeTest {
 		parent.addChild("filho");
 		assertEquals(parent.getChild(0).getData(), "filho");
 	}
+	@Test
+	public void TreeAddChildTest2() {
+		Tree<String> parent = new Tree<String>("pai");
+		Tree<String> parent2 = new Tree<String>("mae");
+		
+		Tree<String> actual = parent.addChild(parent2);
+
+		assertEquals(parent2, actual);
+	}
+	@Test
+	public void TreeAddChildTest3() {
+		Tree<String> parent = new Tree<>("pai");
+		
+		String child = "filho";
+		Tree<String> ret = parent.addChild(child);
+		
+		assertEquals(child, ret.getData());
+	}
 /**
 	@Test
 	public void TreeAddChildNullTest() {

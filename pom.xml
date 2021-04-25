@@ -228,6 +228,7 @@
     			<artifactId>pitest-maven</artifactId>
     			<version>1.6.5</version>
     			<configuration>
+    			<threads>4</threads>
     				<excludedClasses>
     					<excludedClasse>com.chschmid.jdotxt.*</excludedClasse>
     				</excludedClasses>
