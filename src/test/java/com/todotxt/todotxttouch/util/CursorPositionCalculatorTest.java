@@ -175,4 +175,15 @@ public class CursorPositionCalculatorTest
 
 		assertEquals(expected, actual);
 	}
+	/*
+	 * new
+	 */
+	@Test
+	public void calculateTestBVA05() 
+	{
+		int expected = 1;
+		int actual = CursorPositionCalculator.calculate(0, "", "a");
+
+		assertEquals(expected, actual);
+	}
 }

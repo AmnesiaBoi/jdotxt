@@ -29,7 +29,8 @@ public class AndFilterTest {
 		
 		assertTrue(filter.apply(t));
 	}
-	
+	/*
+	 * diogo
 	@Test
 	public void oneFilterFalseTest()
 	{
@@ -41,5 +42,15 @@ public class AndFilterTest {
 		
 		assertTrue(filter.apply(t));
 	}
-	
+	*/
+	@Test(expected=NullPointerException.class)
+	public void andFilterTest1(){
+		AndFilter filter = new AndFilter();
+		ByContextFilter contextFilter = new ByContextFilter(Arrays.asList(null));
+		filter.addFilter(contextFilter);
+		
+		Task t = new Task(9, null);
+		
+		assertTrue(filter.apply(t));
+	}
 }

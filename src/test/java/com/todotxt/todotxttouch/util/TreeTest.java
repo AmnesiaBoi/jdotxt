@@ -51,10 +51,10 @@ public class TreeTest {
 	@Test
 	public void TreeAddChildTest3() {
 		Tree<String> parent = new Tree<>("pai");
-		
+
 		String child = "filho";
 		Tree<String> ret = parent.addChild(child);
-		
+
 		assertEquals(child, ret.getData());
 	}
 /**

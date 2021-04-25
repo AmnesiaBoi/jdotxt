@@ -2,6 +2,7 @@ package com.todotxt.todotxttouch.task;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -52,8 +53,7 @@ public class PriorityTest {
 	}
 	
 	@Test
-	public void testListToPriority()
-	{
+	public void testListToPriority(){
 		List<String> codes = Arrays.asList("A", "B");
 		
 		List<Priority> actual = Priority.toPriority(codes);
@@ -62,14 +62,28 @@ public class PriorityTest {
 		
 		assertEquals(expected, actual);
 	}
-	
+	/*
+	 * new
+	 */
 	@Test
-	public void testNullStringToPriority()
-	{
+	public void testNullStringToPriority(){
 		Priority actual = Priority.toPriority((String) null);
 		Priority expected = Priority.NONE;
 		
 		assertEquals(expected, actual);
 	}
-	
+	@Test
+	public void testPriorityLonger() {
+		List<Priority> actual = Priority.range(Priority.A, Priority.A);
+		List<Priority> expected = Arrays.asList(Priority.A);
+		
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void testPriorityLonger2() {
+		List<Priority> actual = Priority.range(Priority.Z, Priority.NONE);
+		List<Priority> expected = Arrays.asList(Priority.Z, Priority.NONE);
+		
+		assertEquals(expected, actual);
+	}
 }
