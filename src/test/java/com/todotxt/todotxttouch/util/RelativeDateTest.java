@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.junit.Before;
@@ -138,6 +139,40 @@ public class RelativeDateTest
 		
 		String expected = FORMAT.format(calendar.getTime());
 		String actual = RelativeDate.getRelativeDate(calendar);
+		
+		assertEquals(expected, actual);
+	}
+	
+	/*
+	 * String getRelativeDate(Calendar calendar)
+	 */
+	
+	@Test
+	public void getRelativeDateWithCalendarTest()
+	{
+		Calendar today = new GregorianCalendar();
+		
+		String expected = TODAY;
+		String actual = RelativeDate.getRelativeDate(today);
+		
+		assertEquals(expected, actual);
+	}
+	
+	/*
+	 * String getRelativeDate(Date date)
+	 */
+	
+	// Needed because project was made using the deprecated Date object
+	@SuppressWarnings("deprecation") 
+	@Test
+	public void getRelativeDateWithDateTest()
+	{
+		Date today = new Date();
+		
+		today.setDate(today.getDate() - 1);
+		
+		String expected = ONE_DAY;
+		String actual = RelativeDate.getRelativeDate(today);
 		
 		assertEquals(expected, actual);
 	}

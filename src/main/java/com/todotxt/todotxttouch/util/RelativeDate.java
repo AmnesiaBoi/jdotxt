@@ -29,10 +29,6 @@ public class RelativeDate {
 
 	public static String getRelativeDate(Calendar calendar) {
 		Calendar today = new GregorianCalendar();
-		today.set(GregorianCalendar.HOUR_OF_DAY, 0);
-		today.set(GregorianCalendar.MINUTE, 0);
-		today.set(GregorianCalendar.SECOND, 0);
-		today.set(GregorianCalendar.MILLISECOND,0);
 		
 		return getRelativeDate(today, calendar);
 	}

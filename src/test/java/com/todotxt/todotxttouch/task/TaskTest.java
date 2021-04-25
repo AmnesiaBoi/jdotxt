@@ -5,7 +5,6 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Collections;
@@ -223,15 +222,16 @@ public class TaskTest {
 		
 		assertEquals(expected, t.inFileFormatHeaderNoDate());
 	}
-	/*
-	 * new
-
+	
 	@Test
-	public void getMailAdressesTest(){
-		String a[] = new String[] { "abc@def.com", "def@abc.com"};
-		List<String> actual = Arrays.asList(a);
+	public void getMailAdressesTest()
+	{
+		Task t = new Task(0, "alice@mail.com bob@mail.com");
 		
-		assertEquals(actual.getMailAddresses());
+		List<String> expected = Arrays.asList("alice@mail.com", "bob@mail.com");
+		List<String> actual = t.getMailAddresses();
+		
+		assertEquals(expected, actual);
 	}
-	*/
+	
 }

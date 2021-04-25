@@ -114,7 +114,7 @@ public class StringsTest
 	
 
 	/*
-	 * Boundary Value Analysis tests for: 
+	 * Boundary Value Analysis(BVA) tests for: 
 	 * 	 Strings.insertPadded(String s, int insertAt, String stringToInsert)
 	 * 
 	 * # | Boundary/Partition            | Type      | Value
@@ -126,7 +126,7 @@ public class StringsTest
 	 */
 
 	@Test
-	public void insertPaddedTestBVA01() {
+	public void insertPaddedTestBVA1() {
 		String expected = "abc abc";
 		String actual = Strings.insertPadded("abc", 0, "abc");
 
@@ -134,12 +134,12 @@ public class StringsTest
 	}
 
 	@Test (expected = IndexOutOfBoundsException.class)
-	public void insertPaddedTestBVA02() {
+	public void insertPaddedTestBVA2() {
 		Strings.insertPadded("abc", -1, "abc");
 	}
 
 	@Test
-	public void insertPaddedTestBVA03() {
+	public void insertPaddedTestBVA3() {
 		String expected = "abc abc";
 		String actual = Strings.insertPadded("abc", 3, "abc");
 
@@ -147,19 +147,19 @@ public class StringsTest
 	}
 
 	@Test (expected = IndexOutOfBoundsException.class)
-	public void insertPaddedTestBVA04() {
+	public void insertPaddedTestBVA4() {
 		Strings.insertPadded("abc", 3+1, "abc");
 	}
 
 	@Test
-	public void insertPaddedTestBVA05() {
+	public void insertPaddedTestBVA5() {
 		String expected = "a abc abc";
 		String actual = Strings.insertPadded("a  abc", 2, "abc");
 
 		assertEquals(expected, actual);
 	}
 	@Test
-	public void insertPaddedTestBVA06() {
+	public void insertPaddedTestBVA6() {
 		String expected = "ab abc";
 		String actual = Strings.insertPadded(" abc", 0, "ab");
 
@@ -286,6 +286,14 @@ public class StringsTest
 		
 		String expected = "abc ";
 		String actual = Strings.insertPaddedIfNeeded(s, insertAt, stringToInsert);
+		
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void insertPaddedIfNeededEndSpaceTest() {
+		String expected = "abc ";
+		String actual = Strings.insertPaddedIfNeeded("abc ", 0, "abc");
 		
 		assertEquals(expected, actual);
 	}

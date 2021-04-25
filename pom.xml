@@ -228,10 +228,33 @@
     			<artifactId>pitest-maven</artifactId>
     			<version>1.6.5</version>
     			<configuration>
-    			<threads>4</threads>
+    				<threads>4</threads>
+    			
     				<excludedClasses>
     					<excludedClasse>com.chschmid.jdotxt.*</excludedClasse>
+    					<excludedClasse>com.todotxt.todotxttouch.util.TaskIo</excludedClasse>
+    					<excludedClasse>com.todotxt.todotxttouch.task.LocalFileTaskRepository</excludedClasse>
+    					<!-- Ignored due to time constraints -->
+    					<excludedClasse>com.todotxt.todotxttouch.task.JdotxtTaskBagImpl</excludedClasse>
+    					<excludedClasse>com.todotxt.todotxttouch.task.Task</excludedClasse>
+    					<excludedClasse>com.todotxt.todotxttouch.task.TaskBagImpl</excludedClasse>
+    					<excludedClasse>com.todotxt.todotxttouch.task.TaskBagFactory</excludedClasse>
+    					<excludedClasse>com.todotxt.todotxttouch.task.TextSplitter</excludedClasse>
     				</excludedClasses>
+    				
+    				<excludedMethods>
+    					<!-- com.todotxt.todotxttouch.util.Util -->
+    					<excludedMethod>writeFile</excludedMethod>
+    					<excludedMethod>isDeviceWritable</excludedMethod>
+    					<excludedMethod>isDeviceReadable</excludedMethod>
+    					<excludedMethod>createParentDirectory</excludedMethod>
+    					<excludedMethod>renameFile</excludedMethod>
+    					<excludedMethod>copyFile</excludedMethod>
+    					<excludedMethod>createImageIcon</excludedMethod>
+    					<excludedMethod>closeStream</excludedMethod>
+    					<!-- General -->
+    					<excludedMethod>hashCode</excludedMethod>
+    				</excludedMethods>
     			</configuration>
  			</plugin> 
         </plugins>
