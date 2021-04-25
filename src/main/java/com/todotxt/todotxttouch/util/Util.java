@@ -437,7 +437,7 @@ public class Util {
         }
     }
 
-	public static void prependString(ArrayList<String> list, String prepend) {
+	public static void prependString(List<String> list, String prepend) {
 		for (int k1=0; k1 < list.size(); k1++) {
 			list.set(k1, prepend + list.get(k1));
 		}

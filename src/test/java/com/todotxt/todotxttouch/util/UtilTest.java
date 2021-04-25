@@ -1,7 +1,14 @@
 package com.todotxt.todotxttouch.util;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -183,5 +190,141 @@ public class UtilTest
 		String actual = Util.join(original, ",");
 
 		assertEquals(expected, actual);
+	}
+	
+	/*
+	 * String readStream(InputStream is)
+	 */
+	
+	@Test
+	public void readNullStreamTest() 
+	{
+		String actual = Util.readStream(null);
+		
+		assertNull(actual);
+	}
+	
+	@Test
+	public void readEmptyStreamTest() 
+	{
+		String expected = "";
+		
+		InputStream in = new ByteArrayInputStream(expected.getBytes());
+		
+		String actual = Util.readStream(in);
+		
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void readStreamTest() 
+	{
+		String expected = "something";
+		
+		InputStream in = new ByteArrayInputStream(expected.getBytes());
+		
+		String actual = Util.readStream(in);
+		
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void readClosedStreamTest() throws IOException 
+	{
+		File temporary = File.createTempFile("abc", null);
+		
+		InputStream in = new FileInputStream(temporary);
+		in.close();
+		
+		String actual = Util.readStream(in);
+		
+		assertNull(actual);
+	}
+	
+	/*
+	 * void writeFile(InputStream is, File file)
+	 */
+	
+	@Test
+	public void writeFileTest() throws IOException 
+	{
+		String expected = "something";
+		
+		File temporary = File.createTempFile("abc", null);
+		InputStream in = new ByteArrayInputStream(expected.getBytes());
+		
+		Util.writeFile(in, temporary);
+		
+		String actual = Util.readStream(new FileInputStream(temporary));
+		
+		assertEquals(expected, actual);
+	}
+	
+	/*
+	 * boolean isDeviceWritable()
+	 */
+	
+	// TODO: Method not implemented yet, therefore no tests
+	
+	/*
+	 * boolean isDeviceReadable()
+	 */
+	
+	// TODO: Method not implemented yet, therefore no tests
+	
+	/*
+	 * void copyFile(File origFile, File newFile, boolean overwrite)
+	 */
+	
+	@Test
+	public void copyFileTest() throws IOException
+	{
+		String expected = "something";
+		
+		File temporaryFrom = File.createTempFile("fromfile", null);
+		InputStream in = new ByteArrayInputStream(expected.getBytes());
+		Util.writeFile(in, temporaryFrom);
+		
+		File temporaryTo = File.createTempFile("tofile", null);
+		
+		
+		Util.copyFile(temporaryFrom, temporaryTo, true);
+		
+		
+		String actual = Util.readStream(new FileInputStream(temporaryTo));
+		
+		assertEquals(expected, actual);
+	}
+	
+	/*
+	 * void prependString(ArrayList<String> list, String prepend)
+	 */
+	
+	@Test
+	public void prependStringTest()
+	{
+		List<String> list = Arrays.asList("1", "2", "3");
+		String prepend = "A";
+		
+		List<String> expected = Arrays.asList("A1", "A2", "A3");
+		
+		Util.prependString(list, prepend);
+		
+		assertEquals(expected, list);
+	}
+	
+	/*
+	 * integerList2IntArray(List<Integer> integerlist)
+	 */
+	
+	@Test
+	public void integerList2IntArrayTest()
+	{
+		List<Integer> list = Arrays.asList(1, 2, 3, 4);
+		
+		int[] expected = {1, 2, 3, 4};
+		int[] actual = Util.integerList2IntArray(list);
+		
+		assertArrayEquals(expected, actual);
 	}
 }
